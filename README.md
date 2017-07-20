@@ -5,12 +5,13 @@ Final standings of international cups in the PPM world (only Europe in soccer, a
 Examples of queries: 
 
 -- List of all finals with Ukrainian teams
-SELECT 
-	t.name teamname
-	, r.sport
-	, r.season
-	, r.cup
-	, r.pos
+
+SELECT
+  t.name teamname
+  , r.sport
+  , r.season
+  , r.cup
+  , r.pos
 FROM intcup_playoffranking r
 INNER JOIN intcup_teams t ON t.team_id = r.team_id
 INNER JOIN intcup_countries c ON c.country_id = t.country_id
@@ -19,6 +20,7 @@ AND r.pos < 3
 ORDER BY sport ASC, season ASC
 
 -- Ukrainian presence in top-16 of international cups in hockey
+
 SELECT 
 	t.name
 	, r.season
@@ -32,6 +34,7 @@ AND r.pos < 17
 ORDER BY r.pos ASC, r.season DESC
 
 -- Ranking of countries by titles
+
 SELECT 
 	c.name country
 	, COUNT(\*) titles
